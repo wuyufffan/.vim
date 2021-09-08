@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/yufffanwu/.vim/plugged/vim-snippets/UltiSnips'
+let g:netrw_dirhist_3='/Users/yufffanwu/.vim/plugged/vim-snippets'
+let g:netrw_dirhist_2='/Users/yufffanwu/.vim/plugged'
+let g:netrw_dirhist_1='/Users/yufffanwu/.vim'
+let g:netrw_dirhist_0='/Users/yufffanwu/.vim/plugged/vim-snippets/UltiSnips'
+let g:netrw_dirhist_9='/Users/yufffanwu/.vim/plugged/vim-snippets'
+let g:netrw_dirhist_8='/Users/yufffanwu/.vim/plugged'
+let g:netrw_dirhist_7='/Users/yufffanwu/.vim'
+let g:netrw_dirhist_6='/Users/yufffanwu/Desktop/test.md'
+let g:netrw_dirhist_5='/Users/yufffanwu/Desktop'
