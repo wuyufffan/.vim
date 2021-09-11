@@ -237,7 +237,6 @@ let g:coc_global_extensions = [
   \'coc-pyright',
   \'coc-clangd',
   \'coc-actions',
-  \'coc-markdownlint'
   \'coc-texlab',
   \'coc-vimtex',
   \'coc-explorer',
