@@ -149,6 +149,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Markdown Preview
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'suan/vim-instant-markdown'
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" debug plugin
+Plug 'skywind3000/asyncrun.vim'
+Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-python  --enable-bash'}
 call plug#end()
 
 " gruvbox
@@ -271,3 +277,43 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
+" ===
+" === python debugplugins
+" ===
+" nnoremap <F5> :call CompileRunGcc()<cr>
+" 
+" func! CompileRunGcc()
+          " exec "w"
+          " if &filetype == 'python'
+                  " if search("@profile")
+                          " exec "AsyncRun kernprof -l -v %"
+                          " exec "copen"
+                          " exec "wincmd p"
+                  " elseif search("set_trace()")
+                          " exec "!python3 %"
+                  " else
+                          " exec "AsyncRun -raw python3 %"
+                          " exec "copen"
+                          " exec "wincmd p"
+                  " endif
+          " endif
+" 
+" endfunc
+
+" ===
+" === vimspector settings
+" ===
+let g:vimspector_enable_mappings = 'HUMAN'
+function! s:read_template_into_buffer(template)
+	" has to be a function to avoid the extra space fzf#run insers otherwise
+	execute '0r ~/.config/nvim/sample_vimspector_json/'.a:template
+endfunction
+command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
+			\   'source': 'ls -1 ~/.config/nvim/sample_vimspector_json',
+			\   'down': 20,
+			\   'sink': function('<sid>read_template_into_buffer')
+			\ })
+noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
+sign define vimspectorBP text=☛ texthl=Normal
+sign define vimspectorBPDisabled text=☞ texthl=Normal
+sign define vimspectorPC text=▶ texthl=SpellBad

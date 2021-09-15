@@ -720,4 +720,10 @@ snippet pmdoc "pocoo style module doc string" b
 $0
 endsnippet
 
+# 00:36 2021-09-15 wuyufffan
+snippet flag "if flag code block" b
+flag${1:string} = ${2:False}
+if flag${1:string} == ${2:False}:
+	${0}
+endsnippet
 # vim:ft=snippets:
